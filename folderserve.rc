@@ -1,0 +1,3 @@
+// The quoted path below has to name the same file as `ICON` in build.rs.
+// The id below has to be `APP_ICON_ID` in src/win/tray.rs.
+1 ICON "folderserve.ico"

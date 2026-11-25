@@ -1,0 +1,19 @@
+[package]
+name = "folderserve"
+version = "0.1.0"
+edition = "2021"
+
+[target.'cfg(windows)'.dependencies]
+# `Win32_Graphics_Gdi` is here for a type, not a call: `WNDCLASSW` carries an `HBRUSH` field, so the struct cannot be built without the GDI types, and `Win32_Security` is here because `RegCreateKeyExW` takes a `SECURITY_ATTRIBUTES` pointer. `Win32_System_Ole` is here for `CF_UNICODETEXT` alone, which is the only module that defines the clipboard format.
+windows-sys = { version = "0.61", features = [
+	"Win32_Foundation",
+	"Win32_Graphics_Gdi",
+	"Win32_Security",
+	"Win32_System_DataExchange",
+	"Win32_System_LibraryLoader",
+	"Win32_System_Memory",
+	"Win32_System_Ole",
+	"Win32_System_Registry",
+	"Win32_UI_Shell",
+	"Win32_UI_WindowsAndMessaging",
+] }
